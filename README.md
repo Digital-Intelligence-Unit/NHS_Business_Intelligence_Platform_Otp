@@ -20,11 +20,13 @@ The routerID set in the Dockerfile in `lsc`.
 
 ## Terms of Use
 
-This project and all code within is © Crown copyright and available under the terms of the Open Government 3.0 licence.
+This specific code repository and all code within is © Crown copyright and available under the terms of the Open Government 3.0 licence.
 
 The code has been developed and is maintained by the NHS and where possible we will try to adhere to the NHS Open Source Policy (<https://github.com/nhsx/open-source-policy/blob/main/open-source-policy.md>).
 
 It shall remain free to the NHS and all UK public services.
+
+Please note: This library relies on open source software which have their own licences and terms of use. Please review those licences prior to use.
 
 ### Contributions
 
