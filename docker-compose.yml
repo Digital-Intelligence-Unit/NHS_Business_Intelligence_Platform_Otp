@@ -1,7 +1,0 @@
-version: "3"
-services:
-  otp:
-    build: .
-    image: opentripplanner-brb
-    ports:
-      - 8080:8080

@@ -1,0 +1,30 @@
+graphhopper:
+  datareader.file: data/lsc.osm.pbf
+  gtfs.file: data/nw_gtfs.zip
+  graph.location: /mnt/efs/otp/graphs/lsc-otp
+
+  profiles:
+    - name: foot
+      custom_model_files: [foot.json]
+
+    - name: bike
+      custom_model_files: [bike.json]
+
+    - name: car
+      custom_model_files: [car.json]
+
+  routing.non_ch.max_waypoint_distance: 500
+
+  graph.dataaccess.default_type: MMAP
+  graph.encoded_values: car_access, car_average_speed, foot_access, hike_rating, foot_priority, foot_average_speed, bike_priority, bike_access, roundabout, bike_average_speed, max_weight, max_width, max_height, road_class
+  import.osm.ignored_highways: motorway
+
+server:
+  application_connectors:
+    - type: http
+      port: 8080
+      bind_host: 0.0.0.0
+  # admin_connectors:
+  #   - type: http
+  #     port: 8990
+  #     bind_host: localhost
