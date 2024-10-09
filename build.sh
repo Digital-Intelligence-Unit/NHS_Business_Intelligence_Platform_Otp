@@ -1,8 +1,5 @@
 # Check if data changed
-if 
-    [! -f '/mnt/efs/otp/version.txt'] || 
-    [`cat data/version.txt` != `cat /mnt/efs/otp/version.txt`]
-; then
+if [ ! -f '/mnt/efs/otp/version.txt' ] || [ `cat data/version.txt` != `cat /mnt/efs/otp/version.txt` ]; then
     # Install Java
     apt-get update; apt-get install -y java-21-amazon-corretto-jdk
     update-alternatives --auto javac
