@@ -1,22 +1,22 @@
 # Open Trip Planner
 
-Geographical server for computing trip routes and times, based on the open source library <https://www.opentripplanner.org/>
+Geographical server for computing trip routes and times, based on the open source library https://github.com/graphhopper/graphhopper
 
 ## Deployment
 
-This code will deploy as a docker container and include the UK datasets we use to carry out geographical mapping functions.
+The project is currently deployed via an AWS code pipeline with the following build steps...
 
-For a method of automating the deployment of this server, along with the rest of our BI platform, please refer to: <https://github.com/morgans3/NHS_Business_Intelligence_Platform>
+1) Run build.sh to import OSM and GTFs files. File cache is copied to an EFS which is then mounted to the docker container.
+2) Build docker image
+3) Deploy docker image on ECS
 
-## Usage (API Calls)
+## Updating data
 
-There are far too many methods of using the server to include here. Guidance on all the API calls for this server can be found from the Open Trip Planner documentation.
+Make sure to update the data/version.txt when deploying new data, otherwise the data cached in EFS will continue to be used.
 
-An example of how to retrieve a FeatureCollection JSON response of the geometries of walking distance from the LatLng 53.74, -2.99 via an API call is:
+## Usage
 
-<https://YOUR_URL_HERE/otp/routers/lsc/isochrone?fromPlace=53.74404,-2.99824&date=2022/04/28&time=12:00:00&maxWalkDistance=1000&mode=WALK&cutoffSec=1800&cutoffSec=3600>
-
-The routerID set in the Dockerfile in `lsc`.
+The graphopper API documentation can be found here https://docs.graphhopper.com/
 
 ## Terms of Use
 
@@ -30,6 +30,6 @@ Please note: This library relies on open source software which have their own li
 
 ### Contributions
 
-This code has been authored by Stewart Morgan (stewart.morgan@nhs.net) and colleagues in the Digital Intelligence Unit @ NHS Blackpool CCG.
+This code has been authored by Luke Tinnion (luke.tinnion@nhs.net) and colleagues in the Digital Intelligence Unit @ NHS L&SC ICB.
 
 _This project and all code within is © Crown copyright and available under the terms of the Open Government 3.0 licence._
