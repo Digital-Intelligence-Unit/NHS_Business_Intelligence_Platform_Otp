@@ -1,5 +1,6 @@
 # Check if data changed
-if [ ! -f /mnt/efs/otp/version.txt ] || [`cat "${CODEBUILD_SRC_DIR}/data/version.txt"` != `cat /mnt/efs/otp/version.txt`]; then
+VERSION_DIFF="$(cmp --silent -- "${CODEBUILD_SRC_DIR}/data/version.txt" "/mnt/efs/otp/version.txt"; echo $?)"
+if [ $VERSION_DIFF -ne 0 ]; then
     # Install Java
     echo "Installing Java..."
     apt-get update; apt-get install -y java-21-amazon-corretto-jdk
