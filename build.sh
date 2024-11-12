@@ -17,7 +17,7 @@ if [ $VERSION_DIFF -ne 0 ]; then
 
     # Import data
     echo "Importing data via graphhopper..."
-    java -Xmx10G -D'dw.graphhopper.datareader.file=${CODEBUILD_SRC_DIR}/data/lsc.osm.pbf' -jar graphhopper-web-9.1.jar import config.yml
+    java -Xmx10G -D'dw.graphhopper.datareader.file=data/lsc.osm.pbf' -jar graphhopper-web-9.1.jar import config.yml
 
     # Change permissions
     echo "Changing permissions and copying version.txt..."
