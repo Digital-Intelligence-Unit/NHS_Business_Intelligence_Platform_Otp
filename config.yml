@@ -1,7 +1,7 @@
 graphhopper:
   datareader.file: data/lsc.osm.pbf
-  gtfs.file: data/nw_gtfs.zip
-  graph.location: /mnt/efs/otp/graphs/lsc-otp
+  gtfs.file: data/itm_north_west_gtfs.zip
+  graph.location: /mnt/efs/otp/graphs/lsc-otp-106
 
   profiles:
     - name: foot
