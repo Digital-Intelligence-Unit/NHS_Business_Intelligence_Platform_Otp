@@ -1,6 +1,6 @@
 graphhopper:
   datareader.file: data/lsc.osm.pbf
-  gtfs.file: data/nw_gtfs.zip
+  gtfs.file: data/itm_north_west_gtfs.zip,data/atoc_heavy_rail_gtfs.zip
   graph.location: /mnt/efs/otp/graphs/lsc-otp
 
   profiles:
