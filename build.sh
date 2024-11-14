@@ -16,7 +16,7 @@ if [ $VERSION_DIFF -ne 0 ]; then
     wget https://repo1.maven.org/maven2/com/graphhopper/graphhopper-web/9.1/graphhopper-web-9.1.jar 
 
     # Download pbf
-    wget https://download.bbbike.org/osm/extract/planet_-2.981_53.017_95513bad.osm.pbf -O data/lsc.osm.pbf
+    wget https://lscics-sis-infra-publicfiles-ew2-dev.s3.eu-west-2.amazonaws.com/misc/lsc.osm.pbf -O data/lsc.osm.pbf
 
     # Import data
     echo "Importing data via graphhopper..."
