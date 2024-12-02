@@ -7,6 +7,9 @@ if [ $VERSION_DIFF -ne 0 ]; then
     update-alternatives --auto javac
     update-alternatives --auto java
 
+    # Create fake cache dir
+    mkdir /mnt/cache
+
     # Remove existing
     echo "Removing existing data from EFS..."
     rm -r -f /mnt/efs/*
@@ -22,8 +25,10 @@ if [ $VERSION_DIFF -ne 0 ]; then
     echo "Importing data via graphhopper..."
     java -Xmx10G -D'dw.graphhopper.datareader.file=data/lsc.osm.pbf' -jar graphhopper-web-9.1.jar import config.yml
 
-    # Change permissions
-    echo "Changing permissions and copying version.txt..."
+    # Create dirs, copy files, change permissions
+    echo "Changing permissions and copying files..."
+    mkdir -p /mnt/efs/otp
+    cp -r /mnt/cache/otp /mnt/efs/otp
     chmod -R 777 /mnt/efs/otp
     cp "${CODEBUILD_SRC_DIR}/data/version.txt" /mnt/efs/otp/version.txt
 fi
