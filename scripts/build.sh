@@ -27,10 +27,14 @@ if [ $VERSION_DIFF -ne 0 ]; then
 
     # Create dirs, copy files, change permissions
     echo "Changing permissions and copying files..."
-    mkdir -p /mnt/efs/otp
-    cp -r /mnt/cache/otp /mnt/efs/otp
+    cp -r /mnt/cache/otp /mnt/efs
     chmod -R 777 /mnt/efs/otp
+
+    # Copy version
     cp "${CODEBUILD_SRC_DIR}/data/version.txt" /mnt/efs/otp/version.txt
+
+    # Remove cache
+    rm -r /mnt/cache
 fi
 
 echo "Import completed successfully"
