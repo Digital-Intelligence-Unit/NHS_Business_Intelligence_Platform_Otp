@@ -1,7 +1,7 @@
 graphhopper:
   datareader.file: data/lsc.osm.pbf
-  gtfs.file: data/nw_gtfs.zip
-  graph.location: /mnt/efs/otp/graphs/lsc-otp
+  gtfs.file: data/bus/itm_north_east_gtfs.zip,data/bus/itm_north_west_gtfs.zip,data/bus/itm_yorkshire_gtfs.zip,data/rail/atoc_heavy_rail_gtfs.zip
+  graph.location: /mnt/cache/otp/graphs/lsc-otp
 
   profiles:
     - name: foot
@@ -13,7 +13,7 @@ graphhopper:
     - name: car
       custom_model_files: [car.json]
 
-  routing.non_ch.max_waypoint_distance: 500
+  routing.non_ch.max_waypoint_distance: 112654
 
   graph.dataaccess.default_type: MMAP
   graph.encoded_values: car_access, car_average_speed, foot_access, hike_rating, foot_priority, foot_average_speed, bike_priority, bike_access, roundabout, bike_average_speed, max_weight, max_width, max_height, road_class
